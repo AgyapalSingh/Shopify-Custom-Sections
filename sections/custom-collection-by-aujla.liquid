@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="{{ 'custom-css-by-aujla.css' | asset_url }}">
+
+<div class="custom-responsive-collection-list-wrapper">
+  <div class="section-header custom-responsive-lists-title">
+    <h2 class="section-header__title h3">{{ section.settings['custom-responsive-collection-title'] }}</h2>
+  </div>
+  <div class="custom-responsive-lists columns-{{ section.settings.columns_per_row }}">
+    {% for block in section.blocks %}
+      <div class="custom-responsive-list">
+        {% assign collection = collections[block.settings['custom-responsive-collection']] %}
+        {% if collection %}
+          <div class="custom-collection-item">
+            <a href="{{ collection.url }}">
+              {% if collection.image %}
+                <img src="{{ collection.image | img_url: 'master' }}" alt="{{ collection.title }}">
+              {% endif %}
+              <h3>{{ collection.title }}</h3>
+            </a>
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collections By Aujla",
+  "tag": "section",
+  "class": "custom-responsive-collection-list",
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom-responsive-collection-title",
+      "label": "Section Title",
+      "default": "Shop by your need"
+    },
+    {
+      "type": "range",
+      "id": "columns_per_row",
+      "label": "Collections per row (desktop)",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 5
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Add a collection",
+      "type": "custom-collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "custom-responsive-collection",
+          "label": "Select a Collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom collection list | Aujla"
+    }
+  ]
+}
+{% endschema %}

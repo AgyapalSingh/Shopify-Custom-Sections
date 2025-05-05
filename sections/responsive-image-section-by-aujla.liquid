@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="{{ 'custom-css-by-aujla.css' | asset_url }}">
+
+<div class="custom-image-banner-aujla">
+    <a href="{{ section.settings.link_on_image }}" class="custom-image-banner-link" target="_blank">
+      <picture>
+        <source
+          media="(max-width: 769px)"
+          srcset="{{ section.settings.self_hosted_image_mobile | image_url }}"
+        >
+        <img
+          src="{{ section.settings.self_hosted_image_desktop | image_url}}"
+          alt="Image Banner"
+          class="custom-banner-img-aujla"
+          width="100%"
+          height="auto"
+          loading="lazy"
+          fetchpriority="high"
+        >
+      </picture>
+    </a>
+  </div>
+  
+  {% schema %}
+  {
+    "name": "Custom Image Aujla",
+    "tag": "section",
+    "class": "custom-image-aujla",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "self_hosted_image_desktop",
+        "label": "Desktop: Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "self_hosted_image_mobile",
+        "label": "Mobile: Image"
+      },
+      {
+        "type": "url",
+        "id": "link_on_image",
+        "label": "Link Url",
+        "info": "Enter the link for the image"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Responsive Image Section | Aujla"
+      }
+    ]
+  }
+  {% endschema %}
+  

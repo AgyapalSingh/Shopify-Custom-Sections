@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="{{ 'custom-css-by-aujla.css' | asset_url }}">
+
+<div class="custom-infinite-scroll-wrapper">
+    <div class="section-header custom-responsive-lists-title">
+      <h2 class="section-header__title h3">{{ section.settings['custom-infinite-image-scroll-title'] }}</h2>
+    </div>
+    <div class="custom-scroll-image-wrapper">
+      <div class="custom-scroll-image">
+        {% for block in section.blocks %}
+          <img src="{{ block.settings.custom-scroll-img | img_url: 'master' }}" alt="{{ collection.title }}">
+        {% endfor %}
+        {% for block in section.blocks %}
+          <img src="{{ block.settings.custom-scroll-img | img_url: 'master' }}" alt="{{ collection.title }}">
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  
+  {% schema %}
+  {
+    "name": "Infinite Image By Aujla",
+    "tag": "section",
+    "class": "custom-infinite-image-scroll",
+    "settings": [
+      {
+        "type": "text",
+        "id": "custom-infinite-image-scroll-title",
+        "label": "Section Title",
+        "default": "Clean & Functional Skincare"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Add Image For Scroll",
+        "type": "custom-scroll",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "custom-scroll-img",
+            "label": "Select Image"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Custom image scroll | Aujla"
+      }
+    ]
+  }
+  {% endschema %}
+  

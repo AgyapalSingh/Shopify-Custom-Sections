@@ -1,0 +1,77 @@
+<link rel="stylesheet" href="{{ 'custom-css-by-aujla.css' | asset_url }}">
+
+<div class="ag-video-container">
+    <div class="ag-video-desktop">
+      {{
+        section.settings.self_hosted_video_desktop
+        | video_tag:
+          controls: section.settings.controller,
+          autoplay: section.settings.autoplay,
+          loop: section.settings.loop,
+          width: '100%'
+      }}
+    </div>
+  
+    <div class="ag-video-mobile">
+      {{
+        section.settings.self_hosted_video_mobile
+        | video_tag:
+          controls: section.settings.controller,
+          autoplay: section.settings.autoplay,
+          loop: section.settings.loop,
+          width: '100%'
+      }}
+    </div>
+  </div>
+  
+  {% schema %}
+  {
+    "name": "Custom Video Aujla",
+    "tag": "section",
+    "class": "custom-video",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+      {
+        "type": "video",
+        "id": "self_hosted_video_desktop",
+        "label": "Desktop: Shopify Hosted Video"
+      },
+      {
+        "type": "video",
+        "id": "self_hosted_video_mobile",
+        "label": "Mobile: Shopify Hosted Video"
+      },
+      {
+        "type": "url",
+        "id": "video_url",
+        "label": "Link URL"
+      },
+      {
+        "type": "checkbox",
+        "id": "autoplay",
+        "label": "Autoplay video",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "controller",
+        "label": "Enable Controls",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "loop",
+        "label": "Loop",
+        "default": false
+      }
+    ],
+    "presets": [
+      {
+        "name": "Responsive Video Section | Aujla"
+      }
+    ]
+  }
+  {% endschema %}
+  

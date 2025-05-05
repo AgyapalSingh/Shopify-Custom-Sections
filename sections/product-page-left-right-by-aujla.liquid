@@ -1,0 +1,117 @@
+<link rel="stylesheet" href="{{ 'custom-css-by-aujla.css' | asset_url }}">
+
+<div class="ag-product-lr-container">
+  {% for block in section.blocks %}
+    {% if block.type == 'lr-content' %}
+      <div class="ag-product-content-lr">
+        <div class="ag-product-content-lr-image">
+          <div>
+            <img
+              src="{{ block.settings.content_product_image | image_url }}"
+              alt="{{ block.settings.content_product_title }}"
+              class="product-image ag-desktop-image"
+            >
+            <img
+              src="{{ block.settings.content_product_image_m | image_url }}"
+              alt="{{ block.settings.content_product_title }}"
+              class="product-image ag-mobile-image"
+            >
+          </div>
+        </div>
+        <div class="ag-product-content-lr-content">
+          <h2>{{ block.settings.content_product_title }}</h2>
+          <p>{{ block.settings.content_product_desciption }}</p>
+        </div>
+      </div>
+    {% elsif block.type == 'rl-content' %}
+      <div class="ag-product-content-rl">
+        <div class="ag-product-content-rl-content">
+          <h2>{{ block.settings.content_product_title }}</h2>
+          <p>{{ block.settings.content_product_desciption }}</p>
+        </div>
+        <div class="ag-product-content-rl-image">
+          <div>
+            <img
+              src="{{ block.settings.content_product_image | image_url }}"
+              alt="{{ block.settings.content_product_title }}"
+              class="product-image ag-desktop-image"
+            >
+            <img
+              src="{{ block.settings.content_product_image_m | image_url }}"
+              alt="{{ block.settings.content_product_title }}"
+              class="product-image ag-mobile-image"
+            >
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Product Page Content",
+  "tag": "section",
+  "class": "product-page-left-right",
+  "settings": [],
+  "blocks": [
+    {
+      "name": "Left Image Right Content",
+      "type": "lr-content",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "content_product_image",
+          "label": "Content Image DeskTop"
+        },
+        {
+          "type": "image_picker",
+          "id": "content_product_image_m",
+          "label": "Content Image Mobile"
+        },
+        {
+          "type": "text",
+          "id": "content_product_title",
+          "label": "Content Title"
+        },
+        {
+          "type": "richtext",
+          "id": "content_product_desciption",
+          "label": "Content Description"
+        }
+      ]
+    },
+    {
+      "name" : "Right Image Left Content",
+      "type": "rl-content",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "content_product_image",
+          "label": "Image for Content"
+        },
+        {
+          "type": "image_picker",
+          "id": "content_product_image_m",
+          "label": "Content Image Mobile"
+        },
+        {
+          "type": "text",
+          "id": "content_product_title",
+          "label": "Content Title"
+        },
+        {
+          "type": "richtext",
+          "id": "content_product_desciption",
+          "label": "Content Description"
+        }
+      ],
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Page LR | Aujla"
+    }
+  ]
+}
+{% endschema %}

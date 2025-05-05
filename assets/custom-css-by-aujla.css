@@ -1,0 +1,278 @@
+/* 1. Left Right Section *****************************************************************************************************************************/
+
+.ag-product-content-lr,
+.ag-product-content-rl {
+  display: flex;
+  flex-direction: row;
+}
+
+.ag-product-content-lr-image,
+.ag-product-content-rl-image {
+  width: 50%;
+}
+
+.ag-product-content-lr-content,
+.ag-product-content-rl-content {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 10%;
+  padding-right: 10%;
+  text-align: center;
+}
+
+.ag-product-content-lr-content h2,
+.ag-product-content-rl-content h2 {
+  font-weight: bold;
+  font-size: 24px;
+  font-family: var(--type-base-primary), var(--type-base-fallback);
+}
+.ag-product-image {
+  width: 100%;
+  height: auto;
+}
+.ag-desktop-image {
+  display: block;
+}
+
+.ag-mobile-image {
+  display: none;
+}
+
+@media screen and (max-width: 912px) {
+  .ag-product-content-lr {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ag-product-content-rl {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .ag-product-content-lr-image,
+  .ag-product-content-rl-image {
+    width: 100%;
+  }
+
+  .ag-product-content-lr-content,
+  .ag-product-content-rl-content {
+    width: 100%;
+    margin: 30px 0px;
+  }
+  .ag-desktop-image {
+    display: none;
+  }
+
+  .ag-mobile-image {
+    display: block;
+  }
+}
+
+/* 2. Responsive Video Section  *****************************************************************************************************************************/
+
+.ag-video-container {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.ag-video-container video {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+@media only screen and (min-width: 769px) {
+  .ag-video-mobile {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .ag-video-desktop {
+    display: none;
+  }
+}
+
+/* Custom  Responsive Accordion */
+.custom-responsive-accordion {
+  padding: 0 15px;
+}
+
+.custom-responsive-accordion-wrapper {
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 0 var(--pageWidthPadding);
+}
+
+.custom-responsive-accordion-header {
+  font-family: "poppins";
+  background-color: #f5f2ee;
+  border-radius: 7px 7px 0px 0px;
+  margin-top: 2px;
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.custom-responsive-accordion-header .custom-accordion-add-icon {
+  width: 20px;
+  text-align: center;
+  transition: transform 0.3s;
+  font-weight: bold;
+}
+
+.custom-responsive-accordion-header.active .custom-accordion-add-icon {
+  transform: rotate(180deg);
+  font-weight: bold;
+}
+
+.custom-responsive-accordion-header.active {
+  background: #eee9e3;
+}
+
+.custom-responsive-accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  letter-spacing: 0.1px;
+  padding: 0px 15px;
+}
+
+.custom-responsive-accordion-content.open {
+  border: 1px solid #ccc;
+  border-top: 0;
+  border-radius: 0px 0px 7px 7px;
+}
+
+/* 3. Custom Collections List  *****************************************************************************************************************************/
+
+.custom-responsive-collection-list-wrapper {
+  padding: 20px;
+}
+
+.custom-responsive-lists-title h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.custom-responsive-lists {
+  max-width: 1500px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* 4. Desktop column counts *****************************************************************************************************************************/
+@media screen and (min-width: 768px) {
+  .custom-responsive-lists.columns-1 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .custom-responsive-lists.columns-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .custom-responsive-lists.columns-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .custom-responsive-lists.columns-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .custom-responsive-lists.columns-5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .custom-responsive-lists.columns-6 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.custom-collection-item {
+  text-align: center;
+  overflow: hidden;
+}
+
+.custom-collection-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.custom-collection-item:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.custom-collection-item h3 {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 16px;
+  font-family: var(--type-base-primary), var(--type-base-fallback);
+}
+
+/* 5. Custom infinite Scroll Images  *****************************************************************************************************************************/
+.custom-scroll-image-wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.custom-scroll-image {
+  display: flex;
+  width: max-content;
+  animation: scroll-left 30s linear infinite;
+}
+
+.custom-scroll-image img {
+  max-height: 140px;
+  flex-shrink: 0;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 1000px) {
+  .custom-scroll-image-wrapper {
+    max-width: 90%;
+  }
+  .custom-scroll-image img {
+    max-height: 110px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .custom-scroll-image-wrapper {
+    max-width: 95%;
+  }
+  .custom-scroll-image img {
+    max-height: 110px;
+  }
+}
