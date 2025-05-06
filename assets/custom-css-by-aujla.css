@@ -73,13 +73,12 @@
 
 /* 2. Responsive Video Section  *****************************************************************************************************************************/
 
-.ag-video-container {
+.ag-responsive-video-wrapper {
   width: 100%;
-  position: relative;
   overflow: hidden;
 }
 
-.ag-video-container video {
+.ag-responsive-video-wrapper video {
   width: 100%;
   height: auto;
   object-fit: cover;
@@ -87,13 +86,13 @@
 }
 
 @media only screen and (min-width: 769px) {
-  .ag-video-mobile {
+  .ag-responsive-video-mobile {
     display: none;
   }
 }
 
 @media only screen and (max-width: 768px) {
-  .ag-video-desktop {
+  .ag-responsive-video-desktop {
     display: none;
   }
 }
